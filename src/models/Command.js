@@ -1,4 +1,4 @@
-export default class Command {
+export class Command {
   constructor(name, description, category, keys) {
     this.name = name
     this.description = description
@@ -8,4 +8,10 @@ export default class Command {
 }
 
 // Categories can be predefined
-export const categories = ['File Management', 'Navigation', 'Editing', 'Search', 'Miscellaneous']
+export const CATEGORIES = {
+  file: 'File Management',
+  navigation: 'Navigation',
+  editing: 'Editing',
+  search: 'Search',
+  miscellaneous: 'Miscellaneous'
+}
