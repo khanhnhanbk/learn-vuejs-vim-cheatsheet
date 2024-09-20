@@ -2,7 +2,7 @@
   <div class="command-item">
     <h3>{{ command.name }}</h3>
     <p>{{ command.description }}</p>
-    <span>Category: {{ command.category }}</span>
+    <span class="badge">{{ command.category }}</span>
     <p>Keys: {{ command.keys }}</p>
   </div>
 </template>
@@ -21,22 +21,26 @@ defineProps({
 <style scoped>
 .command-item {
   border: 1px solid #ccc;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px; /* Rounded corners */
-  background-color: #f9f9f9; /* Light background */
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px;
+  width: 200px;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
 }
-.command-item h3 {
-  margin: 0;
-  font-size: 1.2em;
-  color: #333;
+
+.command-item:hover {
+  transform: scale(1.05);
 }
-.command-item p {
-  margin: 5px 0;
-}
-.command-item span {
-  font-weight: bold;
-  display: block;
-  margin: 5px 0;
+
+.badge {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px; /* Rounded badge */
+  font-size: 0.9em; /* Slightly smaller font */
+  margin-top: 5px; /* Space above the badge */
 }
 </style>

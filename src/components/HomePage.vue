@@ -13,12 +13,12 @@ const commands = ref([
   new Command(':q!', 'Quit without saving', CATEGORIES.file, ':q!'),
   new Command(':w', 'Save the current file', CATEGORIES.file, ':w'),
   new Command(':e filename', 'Open a file named "filename"', CATEGORIES.file, ':e filename'),
-  new Command('gg', 'Go to the first line of the file', CATEGORIES.navigate, 'gg'),
-  new Command('G', 'Go to the last line of the file', CATEGORIES.navigate, 'G'),
-  new Command('h', 'Move cursor left', CATEGORIES.navigate, 'h'),
-  new Command('j', 'Move cursor down', CATEGORIES.navigate, 'j'),
-  new Command('k', 'Move cursor up', CATEGORIES.navigate, 'k'),
-  new Command('l', 'Move cursor right', CATEGORIES.navigate, 'l'),
+  new Command('gg', 'Go to the first line of the file', CATEGORIES.navigation, 'gg'),
+  new Command('G', 'Go to the last line of the file', CATEGORIES.navigation, 'G'),
+  new Command('h', 'Move cursor left', CATEGORIES.navigation, 'h'),
+  new Command('j', 'Move cursor down', CATEGORIES.navigation, 'j'),
+  new Command('k', 'Move cursor up', CATEGORIES.navigation, 'k'),
+  new Command('l', 'Move cursor right', CATEGORIES.navigation, 'l'),
   new Command('dd', 'Delete the current line', CATEGORIES.editing, 'dd'),
   new Command('yy', 'Yank (copy) the current line', CATEGORIES.editing, 'yy'),
   new Command('p', 'Paste the last yanked text', CATEGORIES.editing, 'p'),
@@ -28,7 +28,7 @@ const commands = ref([
   new Command('?', 'Search backward for a pattern', CATEGORIES.search, '?'),
   new Command('n', 'Repeat the last search forward', CATEGORIES.search, 'n'),
   new Command('N', 'Repeat the last search backward', CATEGORIES.search, 'N'),
-  new Command(':!command', 'Execute an external command', CATEGORIES.misc, ':!command')
+  new Command(':!command', 'Execute an external command', CATEGORIES.miscellaneous, ':!command')
 ])
 
 // Computed property for filtering commands based on the search query
@@ -44,24 +44,46 @@ const filteredCommands = computed(() => {
   <div class="home">
     <h1>Welcome to the Vim Commands Cheat Sheet</h1>
     <p>Quickly find and learn Vim commands!</p>
-
-    <!-- Search input with two-way binding to searchQuery -->
     <input type="text" placeholder="Search commands..." v-model="searchQuery" />
-
-    <!-- Command List -->
+    <button @click="searchCommands">Search</button>
     <div v-if="filteredCommands.length">
       <h2>Commands</h2>
-      <ItemCommand v-for="command in filteredCommands" :command="command" :key="command.keys" />
-    </div>
-    <div v-else>
-      <p>No commands found.</p>
+      <div class="command-list">
+        <ItemCommand v-for="command in filteredCommands" :key="command.name" :command="command" />
+      </div>
     </div>
   </div>
 </template>
 
-<style>
+<style scoped>
 .home {
   padding: 20px;
   text-align: center;
+}
+.command-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Space between items */
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px; /* Space below input */
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
 }
 </style>
