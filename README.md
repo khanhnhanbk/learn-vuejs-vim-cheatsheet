@@ -1,35 +1,62 @@
-# tutorial
+# Vim Commands Cheat Sheet
 
-This template should help get you started developing with Vue 3 in Vite.
+A simple web application that lists common Vim commands and provides a search functionality to quickly find commands. The app is built using Vue.js and aims to serve as a learning project for following Git commit message rules.
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- List of common Vim commands.
+- Search bar to filter commands by keyword.
+- Simple, clean interface.
 
-## Customize configuration
+## Table of Contents
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+1. [Installation](#installation)
+2. [Usage](#usage)
+3. [Tutorial](#tutorial)
+4. [Contributing](#contributing)
+5. [License](#license)
 
-## Project Setup
+## Installation
 
-```sh
+### Prerequisites
+
+- [Node.js](https://nodejs.org/en/) (v16.x or above)
+- [Vue CLI](https://cli.vuejs.org/)
+
+### Setup
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/vim-commands-cheat-sheet.git
+```
+
+Navigate into the project directory:
+
+```bash
+cd vim-commands-cheat-sheet
+```
+
+Install the dependencies:
+
+```bash
 pnpm install
 ```
 
-### Compile and Hot-Reload for Development
+Run the development server:
 
-```sh
+```bash
 pnpm dev
 ```
 
-### Compile and Minify for Production
+The app will be running at `http://localhost:5173/`.
 
-```sh
-pnpm build
-```
+## Usage
 
-### Lint with [ESLint](https://eslint.org/)
+1. Navigate to the home page.
+2. Browse through the list of Vim commands.
+3. Use the search bar to filter the commands.
 
-```sh
-pnpm lint
-```
+## License
+
+This project is licensed under the MIT License.
