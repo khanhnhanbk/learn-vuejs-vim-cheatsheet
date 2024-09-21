@@ -1,3 +1,5 @@
-module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/learn-vue-vim-cheat-sheets/' : '/'
-}
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  base: process.env.NODE_ENV === 'production' ? './' : '/'
+})

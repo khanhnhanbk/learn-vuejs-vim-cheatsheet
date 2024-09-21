@@ -3,6 +3,7 @@
 ci:
   # TODO: This currently fails with "command not found"
   skip: [terraform_fmt, terraform_validate]
+  exclude: [pnpm-lockfile, npm-package-json, npm-shrinkwrap-json, npm-package-lock]
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
